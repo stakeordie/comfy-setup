@@ -19,7 +19,7 @@ cd /workspace/ComfyUI/custom_nodes \
 && git reset --hard c3eed09
 
 cd /workspace/ComfyUI/custom_nodes \
-&& git clone https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git \
+&& git clone https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git --recursive \
 && cd ComfyUI-Custom-Scripts \
 && git reset --hard 626e001
 
