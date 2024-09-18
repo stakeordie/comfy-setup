@@ -1,7 +1,11 @@
 pip install --upgrade onnxruntime
+pip install --upgrade onnxruntime-gpu
+pip install --upgrade onnxruntime-directml
+pip install --upgrade onnxruntime-openvino
 
 cd /workspace/ComfyUI/models/diffusion_models \
 && wget 'https://civitai.com/api/download/models/252914?type=Model&format=SafeTensor&size=pruned&fp=fp16' -O DreamShaper_8LCM.safetensors
+&& cp /workspace/ComfyUI/models/diffusion_models/DreamShaper_8LCM.safetensors /workspace/ComfyUI/models/checkpoints/DreamShaper_8LCM.safetensors
 
 cd /workspace/ComfyUI/models/clip_vision/ \
 && wget https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors -O CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors \
@@ -77,7 +81,7 @@ cd /workspace/ComfyUI/custom_nodes \
 && git reset --hard 83fe8d4
 
 cd /workspace/ComfyUI/custom_nodes \
-&& git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git \
+&& git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git --recursive \
 && cd ComfyUI-VideoHelperSuite \
 && git reset --hard 0376e57 \
 && pip install -r requirements.txt
@@ -87,3 +91,8 @@ cd /workspace/ComfyUI/custom_nodes \
 && cd ComfyUI_essentials \
 && git reset --hard 99aad72 \
 && pip install -r requirements.txt
+
+cd /workspace/ComfyUI/custom_nodes \
+&& git clone https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes.git --recursive \
+&& cd ComfyUI_Comfyroll_CustomNodes \
+&& git reset --hard d78b780
