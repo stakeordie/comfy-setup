@@ -4,7 +4,12 @@ pip install --upgrade onnxruntime-directml
 pip install --upgrade onnxruntime-openvino
 
 cd /workspace/ComfyUI/models/diffusion_models \
-&& wget 'https://civitai.com/api/download/models/252914?type=Model&format=SafeTensor&size=pruned&fp=fp16' -O DreamShaper_8LCM.safetensors \
+&& if [ -f "DreamShaper_8LCM.safetensors" ];
+then 
+  echo "File $local_file already exists.";
+else
+  wget 'https://civitai.com/api/download/models/252914?type=Model&format=SafeTensor&size=pruned&fp=fp16' -O DreamShaper_8LCM.safetensors; 
+fi \
 && cp /workspace/ComfyUI/models/diffusion_models/DreamShaper_8LCM.safetensors /workspace/ComfyUI/models/checkpoints/DreamShaper_8LCM.safetensors
 
 cd /workspace/ComfyUI/models/clip_vision/ \
@@ -27,10 +32,12 @@ cd /workspace/ComfyUI/models/ \
 
 
 cd /workspace/ComfyUI/models/loras/ \
-&& wget https://huggingface.co/wangfuyun/AnimateLCM/resolve/main/AnimateLCM_sd15_t2v_lora.safetensors -O AnimateLCM_sd15_t2v_lora.safetensors
+&& wget https://huggingface.co/wangfuyun/AnimateLCM/resolve/main/AnimateLCM_sd15_t2v_lora.safetensors -O AnimateLCM_sd15_t2v_lora.safetensors \
+&& wget https://huggingface.co/Kvikontent/midjourney-v6/resolve/main/mj6-10.safetensors -O mj6-10.safetensors
 
 cd /workspace/ComfyUI/models/animatediff_models/ \
-&& wget https://huggingface.co/wangfuyun/AnimateLCM/resolve/main/AnimateLCM_sd15_t2v.ckpt -O AnimateLCM_sd15_t2v.ckpt
+&& wget https://huggingface.co/wangfuyun/AnimateLCM/resolve/main/AnimateLCM_sd15_t2v.ckpt -O AnimateLCM_sd15_t2v.ckpt \
+&& cp /workspace/ComfyUI/models/animatediff_models/AnimateLCM_sd15_t2v.ckpt /workspace/ComfyUI/models/checkpoints/AnimateLCM_sd15_t2v.ckpt
 
 cd /workspace/ComfyUI/models/ \
 && mkdir animatediff_motion_lora && cd animatediff_motion_lora \
@@ -46,6 +53,8 @@ cd /workspace/ComfyUI/models/ \
 cd /workspace/ComfyUI/models/controlnet/ \
 && wget https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11f1e_sd15_tile_fp16.safetensors -O control_v11f1e_sd15_tile_fp16.safetensors \
 && wget https://huggingface.co/guoyww/animatediff/resolve/main/v3_sd15_sparsectrl_scribble.ckpt -O v3_sd15_sparsectrl_scribble.ckpt
+
+
 
 ##NODES
 
