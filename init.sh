@@ -6,6 +6,7 @@ nvm install stable
 npm install -g pm2
 apt-get install nano
 pip install gdown
+apt-get update && apt-get install ffmpeg libsm6 libxext6 -y
 cd /workspace && git clone https://github.com/comfyanonymous/ComfyUI.git
 cd ComfyUI && git reset --hard 9f4daca
 pip install -r requirements.txt
