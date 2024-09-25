@@ -44,7 +44,8 @@ cd /workspace/ComfyUI/models/ \
   https://huggingface.co/guoyww/animatediff/resolve/main/v2_lora_ZoomOut.ckpt
 
 cd /workspace/ComfyUI/models/controlnet/ \
-&& wget https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11f1e_sd15_tile_fp16.safetensors -O control_v11f1e_sd15_tile_fp16.safetensors
+&& wget https://huggingface.co/comfyanonymous/ControlNet-v1-1_fp16_safetensors/resolve/main/control_v11f1e_sd15_tile_fp16.safetensors -O control_v11f1e_sd15_tile_fp16.safetensors \
+&& wget https://huggingface.co/guoyww/animatediff/resolve/main/v3_sd15_sparsectrl_scribble.ckpt -O v3_sd15_sparsectrl_scribble.ckpt
 
 ##NODES
 
