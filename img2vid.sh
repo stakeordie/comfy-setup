@@ -4,7 +4,7 @@ pip install --upgrade onnxruntime-directml
 pip install --upgrade onnxruntime-openvino
 
 cd /workspace/ComfyUI/models/diffusion_models \
-&& wget 'https://civitai.com/api/download/models/252914?type=Model&format=SafeTensor&size=pruned&fp=fp16' -O DreamShaper_8LCM.safetensors
+&& wget 'https://civitai.com/api/download/models/252914?type=Model&format=SafeTensor&size=pruned&fp=fp16' -O DreamShaper_8LCM.safetensors \
 && cp /workspace/ComfyUI/models/diffusion_models/DreamShaper_8LCM.safetensors /workspace/ComfyUI/models/checkpoints/DreamShaper_8LCM.safetensors
 
 cd /workspace/ComfyUI/models/clip_vision/ \
