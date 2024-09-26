@@ -8,7 +8,8 @@ cd ~
 git clone https://github.com/comfyanonymous/ComfyUI.git
 cd ComfyUI && git reset --hard 9f4daca
 pip install -r requirements.txt
-pip install --ignore-installed opencv-python scikit-image matplotlib websocket-client flask gdown
+#pip install --ignore-installed opencv-python scikit-image matplotlib websocket-client flask gdown ## TRY WITHOUT THIS AND comfy-middlewear
+pip install gdown
 pm2 start --name comfy "python main.py --port 8188 --listen"
 cd ..
 git clone https://github.com/stakeordie/comfy-middleware.git
