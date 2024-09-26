@@ -12,4 +12,5 @@ pip install --ignore-installed opencv-python scikit-image matplotlib websocket-c
 pm2 start --name comfy "python main.py --listen 0.0.0.0 --port 8188"
 cd ..
 git clone https://github.com/stakeordie/comfy-middleware.git
+cd comfy-middleware
 pm2 start --name comfy-middleware "python main.py"
