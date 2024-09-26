@@ -29,7 +29,8 @@ cd ~/ComfyUI/models/loras/ \
 && wget https://huggingface.co/wangfuyun/AnimateLCM/resolve/main/AnimateLCM_sd15_t2v_lora.safetensors -O AnimateLCM_sd15_t2v_lora.safetensors \
 && wget https://huggingface.co/Kvikontent/midjourney-v6/resolve/main/mj6-10.safetensors -O mj6-10.safetensors;
 
-cd ~/ComfyUI/models/animatediff_models/ \
+cd ~/ComfyUI/models/ \
+&& mkdir animatediff_models && cd ~/ComfyUI/models/animatediff_models/ \
 && wget https://huggingface.co/wangfuyun/AnimateLCM/resolve/main/AnimateLCM_sd15_t2v.ckpt -O AnimateLCM_sd15_t2v.ckpt \
 && cp ~/ComfyUI/models/animatediff_models/AnimateLCM_sd15_t2v.ckpt ~/ComfyUI/models/checkpoints/AnimateLCM_sd15_t2v.ckpt;
 
