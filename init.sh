@@ -2,12 +2,14 @@
 apt update
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 source ~/.bashrc
-nvm install stable
-npm install -g pm2
+nvm install stable && npm install -g pm2
 apt-get install nano
-pip install gdown
 apt-get update && apt-get install ffmpeg libsm6 libxext6 -y
-cd /workspace && git clone https://github.com/comfyanonymous/ComfyUI.git
+git clone https://github.com/comfyanonymous/ComfyUI.git
 cd ComfyUI && git reset --hard 9f4daca
 pip install -r requirements.txt
-pm2 start --name comfy "python3 main.py --port 3001 --listen"
+pip install --ignore-installed opencv-python scikit-image matplotlib websocket-client flask gdown
+pm2 start --name comfy "python main.py --listen 0.0.0.0 --port 8188"
+cd ..
+git clone https://github.com/stakeordie/comfy-middleware.git
+pm2 start --name comfy-middleware "python main.py"
